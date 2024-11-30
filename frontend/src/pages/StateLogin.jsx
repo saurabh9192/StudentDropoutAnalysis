@@ -64,7 +64,7 @@ export default function StateLogin() {
     <section id="about">
       <div className="container-fluid px-0">
         <div className="container mb-md-0 mt-5">
-          <h1 className="au-text">State Authority Login to <img src={KoshishLogo} width="180" className="logo" style={{width: "13rem", marginTop: '-0.5rem', marginLeft: '0rem'}} /></h1>
+          <h1 className="au-text">State Authority Login to <img src={KoshishLogo} alt="" width="180" className="logo" style={{width: "13rem", marginTop: '-0.5rem', marginLeft: '0rem'}} /></h1>
 
           {/* Row 1 */}
           <img src={Vector4} alt="Vector4" className="Vector4" />

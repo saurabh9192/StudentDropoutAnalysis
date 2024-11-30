@@ -11,7 +11,7 @@ export default function Login() {
             <div className="container-fluid px-0">
 
             <div className="container mb-md-0 mt-5">
-            <h1 className="heading-text au-text mt-5" ><img src={KoshishLogo} width="180" className="logo" style={{width: "13rem", marginTop: '-0.5rem', marginLeft: '0rem', marginRight: '-0.3rem'}} /> School Authority</h1>
+            <h1 className="heading-text au-text mt-5" ><img src={KoshishLogo} alt="" width="180" className="logo" style={{width: "13rem", marginTop: '-0.5rem', marginLeft: '0rem', marginRight: '-0.3rem'}} /> School Authority</h1>
 
             {/* Row 1 */}
             <div className="row mt-lg-3 d-flex align-items-center justify-content-center">
@@ -31,7 +31,7 @@ export default function Login() {
                 </div>
             </div>
 
-            <h1 className="heading-text au-text mt-5" ><img src={KoshishLogo} width="180" className="logo" style={{width: "13rem", marginTop: '-0.5rem', marginLeft: '0rem', marginRight: '-0.3rem'}} /> State Authority</h1>
+            <h1 className="heading-text au-text mt-5" ><img src={KoshishLogo} alt="" width="180" className="logo" style={{width: "13rem", marginTop: '-0.5rem', marginLeft: '0rem', marginRight: '-0.3rem'}} /> State Authority</h1>
 
                 {/* Row 1 */}
                 <div className="row mt-lg-3 d-flex align-items-center justify-content-center">
@@ -52,7 +52,7 @@ export default function Login() {
                 </div>
                 </div>
 
-            <h1 className="heading-text au-text mt-5" ><img src={KoshishLogo} width="180" className="logo" style={{width: "13rem", marginTop: '-0.5rem', marginLeft: '0rem', marginRight: '-0.3rem'}} /> Admin</h1>
+            <h1 className="heading-text au-text mt-5" ><img src={KoshishLogo} alt="" width="180" className="logo" style={{width: "13rem", marginTop: '-0.5rem', marginLeft: '0rem', marginRight: '-0.3rem'}} /> Admin</h1>
 
                 {/* Row 1 */}
                 <div className="row mt-lg-3 d-flex align-items-center justify-content-center">
