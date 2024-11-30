@@ -26,7 +26,7 @@ export default function SchoolLogin() {
     e.preventDefault();
   
     try {
-      const res = await fetch('/schoollogin', {
+      const res = await fetch('https://studentdropoutanalysis-2.onrender.com/schoollogin', {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

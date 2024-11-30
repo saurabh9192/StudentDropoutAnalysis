@@ -15,7 +15,7 @@ const SchoolRegisterVerify = () => {
   const handleSendOtp = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('/send-otp', { email }); // Send email to request OTP
+      const res = await axios.post('https://studentdropoutanalysis-2.onrender.com/send-otp', { email }); // Send email to request OTP
       if (res.data.success) {
         setMessage('OTP sent successfully');
         setOtpSent(true); // Set flag indicating OTP was sent

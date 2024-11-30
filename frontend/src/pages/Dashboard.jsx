@@ -7,7 +7,7 @@ const Dashboard = () => {
   const [categoryData, setCategoryData] = useState([]);
 
   useEffect(() => {
-    axios.get('/genderCount')
+    axios.get('https://studentdropoutanalysis-2.onrender.com/genderCount')
       .then(response => {
         const genderData = [
           { name: 'Male', value: response.data.male },
@@ -17,7 +17,7 @@ const Dashboard = () => {
       })
       .catch(error => console.error('Error fetching gender data:', error));
 
-    axios.get('/categoryCount')
+    axios.get('https://studentdropoutanalysis-2.onrender.com/categoryCount')
       .then(response => {
         const categoryData = [
           { name: 'Financial', value: response.data.financial },

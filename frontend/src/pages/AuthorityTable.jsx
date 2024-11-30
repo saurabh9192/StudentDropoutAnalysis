@@ -10,7 +10,7 @@ export default function AdminTable() {
   const navigate = useNavigate();
   useEffect(() => {
     axios
-      .get('/getAuthority')
+      .get('https://studentdropoutanalysis-2.onrender.com/getAuthority')
       .then((response) => setUsers(response.data))
       .catch((error) => console.log(error));
   }, []);

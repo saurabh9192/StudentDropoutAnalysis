@@ -78,7 +78,7 @@ export default function SchoolRegister() {
       // console.log('Form Data:', schoolUser);
       const {schoolname, udisecode, state, district, taluka, city, pincode, board, classfrom, classto, yearofestablishment, fname, mname, lname, email, isteacher, gender, phno, password} = schoolUser
 
-      const res = await fetch("/schoolregister", {
+      const res = await fetch("https://studentdropoutanalysis-2.onrender.com/schoolregister", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
