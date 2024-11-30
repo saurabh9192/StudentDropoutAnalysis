@@ -55,7 +55,7 @@ export default function WelcomeAfterSchoolLogin() {
       // console.log('Form Data:', studentUser);
       const {fname, mname, lname, email, age, gender, phno, address, aadharno, year, udisecode, reason, password} = studentUser
 
-      const res = await fetch("/welcomeafterschoollogin", {
+      const res = await fetch("https://studentdropoutanalysis-2.onrender.com/welcomeafterschoollogin", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
