@@ -1,4 +1,3 @@
-
 const express = require('express');
 const School = require('../model/schoolSchema');
 const Student = require('../model/studentSchema');
@@ -9,6 +8,7 @@ const jwt = require('jsonwebtoken');
 const randomize = require('randomatic'); // for OTP generation
 const nodemailer = require('nodemailer');
 const { google } = require('googleapis');
+const cors = require('cors');
 require('../db/conn');
 const authenticate = require('../Middleware/authenticate');
 const cookieParser = require('cookie-parser');
@@ -16,20 +16,27 @@ const cookieParser = require('cookie-parser');
 const router = express.Router();
 router.use(cookieParser());
 
+
+// Allow requests from your frontend
+router.use(cors({
+    origin: 'https://govindastudentdropoutanalysis.netlify.app', // Your frontend's URL
+    credentials: true // Allow cookies if needed
+}));
+
 router.get("/", (req, res) => { 
     res.send("Hello, I am backend from routes");
 });
-const CLIENT_ID = '1037729424958-8frobhpkjek9aslelo941dehmbr00sq6.apps.googleusercontent.com';
-const CLIENT_SECRET = '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';
-const REDIRECT_URI = 'https://developers.google.com/oauthplayground';
-const REFRESH_TOKEN = '1//04hQ33RnW21zKCgYIARAAGAQSNwF-L9IrA_WZu05wHxIGkCLn9iO68cHXb9d3O4HCOAr9fNlqLC9Qvcw-w5t2_MfXeubHFVD30Ps';
+// const CLIENT_ID = '1037729424958-8frobhpkjek9aslelo941dehmbr00sq6.apps.googleusercontent.com';
+// const CLIENT_SECRET = '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';
+// const REDIRECT_URI = 'https://developers.google.com/oauthplayground';
+// const REFRESH_TOKEN = '1//04hQ33RnW21zKCgYIARAAGAQSNwF-L9IrA_WZu05wHxIGkCLn9iO68cHXb9d3O4HCOAr9fNlqLC9Qvcw-w5t2_MfXeubHFVD30Ps';
 
-const oAuth2Client = new google.auth.OAuth2(
-  CLIENT_ID,
-  CLIENT_SECRET,
-  REDIRECT_URI
-);
-oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
+// const oAuth2Client = new google.auth.OAuth2(
+//   CLIENT_ID,
+//   CLIENT_SECRET,
+//   REDIRECT_URI
+// );
+// oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
 
 async function sendOtpEmail(email, otp) {
     try {
@@ -40,7 +47,6 @@ async function sendOtpEmail(email, otp) {
           pass: 'lhsl ywss sesx sick', // App Password generated from Google account
         },
       });
-  
       const mailOptions = {
         from: 'saurabh.deshmukh@mitaoe.ac.in',
         to: email,
@@ -48,7 +54,6 @@ async function sendOtpEmail(email, otp) {
         text: `Your OTP is ${otp}`,
         html: `<h1>Your OTP is ${otp}</h1>`,
       };
-  
       const result = await transporter.sendMail(mailOptions);
       return result;
     } catch (error) {
