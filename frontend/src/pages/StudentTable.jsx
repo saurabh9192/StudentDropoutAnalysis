@@ -4,7 +4,6 @@ import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 export default function StudentTable() {
   const [users, setUsers] = useState([]);
-  const navigate = useNavigate();
   useEffect(() => {
     axios
       .get('https://studentdropoutanalysis-2.onrender.com/getStudents')
