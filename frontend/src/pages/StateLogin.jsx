@@ -31,7 +31,7 @@ export default function StateLogin() {
         return;
       }
 
-      const res = await fetch('/statelogin', {
+      const res = await fetch('https://studentdropoutanalysis-2.onrender.com/statelogin', {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

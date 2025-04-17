@@ -10,7 +10,7 @@ export default function StudentTable() {
   const navigate = useNavigate();
   useEffect(() => {
     axios
-      .get('/getStudents')
+      .get('https://studentdropoutanalysis-2.onrender.com/getStudents')
       .then((response) => setUsers(response.data))
       .catch((error) => console.log(error));
   }, []);

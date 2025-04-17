@@ -31,13 +31,10 @@ export default function Home() {
               Welcome to Koshish, a platform which is your key to informed decision-making and effective interventions in the domain of education. Explore dropout trends, drive policy improvements, and unlock a brighter future for students across the nation.
               Our platform is a hub of data-driven insights, research, and innovative solutions aimed at addressing the challenges in the education sector. Whether you're an educator, policymaker, or a concerned citizen, Koshish provides the tools and resources you need to foster positive change.
               </h3>
-              <a href="/login">
-                <Button 
-                  label="Start"
-                  c="main-btn"
-                  type="start"
-                />
-              </a>
+
+              <li className="nav-item">
+                <Link className="nav-link" aria-current="page" to="/login">Login</Link>
+              </li>	
               <img src={Vector3} alt="Vector3" className='Vector3' />
               <img src={Vector2} alt="Vector2" className='Vector2' />
             </div>
