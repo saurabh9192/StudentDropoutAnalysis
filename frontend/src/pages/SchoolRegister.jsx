@@ -6,7 +6,6 @@ import DoneIcon from '@mui/icons-material/Done';
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import KoshishLogo from '../assets/Others/koshish - Logo.png'
-import Button from '../components/Button'
 import {Link} from 'react-router-dom'
 
 export default function SchoolRegister() {

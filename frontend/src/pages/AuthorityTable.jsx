@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
-import Vector4 from "../assets/Vector/4.png";
 import KoshishLogo from '../assets/Others/koshish - Logo.png';
 
 export default function AdminTable() {

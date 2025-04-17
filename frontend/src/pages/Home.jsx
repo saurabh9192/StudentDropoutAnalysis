@@ -1,7 +1,6 @@
 
 import React from 'react'
 import {Link} from 'react-router-dom'
-import Button from '../components/Button'
 import Vector1 from '../assets/Vector/1.png'
 import Vector2 from '../assets/Vector/2.png'
 import Vector3 from '../assets/Vector/3.png'
