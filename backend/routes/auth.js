@@ -19,7 +19,7 @@ router.use(cookieParser());
 
 // Allow requests from your frontend
 router.use(cors({
-    origin: 'https://govindastudentdropoutanalysis.netlify.app', // Your frontend's URL
+    origin: 'https://studentdropoutanalysis.netlify.app', // Your frontend's URL
     credentials: true // Allow cookies if needed
 }));
 
