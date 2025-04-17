@@ -31,7 +31,7 @@ export default function SchoolLogin() {
         return;
       }
 
-      const res = await fetch('/adminlogin', {
+      const res = await fetch('https://studentdropoutanalysis-2.onrender.com/adminlogin', {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -194,8 +194,6 @@ export default function SchoolLogin() {
                     </Link> */}
                   </div>
                 </div>
-
-                
               </form>
             </div>
           </div>
