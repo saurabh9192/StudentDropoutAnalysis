@@ -78,7 +78,7 @@ export default function WelcomeAfterSchoolLogin() {
       else
       {
         window.alert('Success')
-        navigate('/')
+        navigate('/welcomeafterschoollogin')
       }
   }
   
