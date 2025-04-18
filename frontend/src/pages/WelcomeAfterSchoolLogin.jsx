@@ -84,7 +84,7 @@ export default function WelcomeAfterSchoolLogin() {
         <div className="container mb-md-0 mt-5">
           <h1 className="au-text">Welcome School to <img src={KoshishLogo} width="180" className="logo" style={{width: "13rem", marginTop: '-0.5rem', marginLeft: '0rem'}} alt="Img"/></h1>
           <div>
-            <Link className="nav-link" aria-current="page" to="/table">
+            <Link className="nav-link" aria-current="page" to="/studenttable">
               <Button 
                 label="History" 
                 c="main-btn" 
