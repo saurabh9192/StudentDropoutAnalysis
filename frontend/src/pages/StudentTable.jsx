@@ -1,6 +1,5 @@
 
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 export default function StudentTable() {
   const [students, setStudents] = useState([]);
   useEffect(() => {
