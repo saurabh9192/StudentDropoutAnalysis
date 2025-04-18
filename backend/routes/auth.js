@@ -312,44 +312,49 @@ router.get('/welcomeafterschoollogin', authenticate, (req, res) => {
 // New Student Dropout Route
 router.post("/welcomeafterschoollogin", async (req, res) => {
     try {
-        const { fname, mname, lname, email, age, gender, phno, address, aadharno, year, udisecode, reason, password } = req.body;
+    const {
+        fname, mname, lname, email, age, gender,
+        phno, address, aadharno, year,
+        udisecode, reason, password
+    } = req.body;
 
-        if ( !fname || !mname || !lname || !email || !age || !gender || !phno || !address || !aadharno || !year || !udisecode || !reason || !password) {
-            return res.status(422).json({ message: "Please fill all the details" });
-        }
+    if (!fname || !mname || !lname || !email || !age || !gender ||
+        !phno || !address || !aadharno || !year || !udisecode ||
+        !reason || !password) {
+        return res.status(422).json({ message: "Please fill all the details" });
+    }
 
-        const isStudentExist = await Student.findOne({ aadharno: aadharno });
-        const isSchoolExist = await School.findOne({ udisecode: udisecode });
+    const isStudentExist = await Student.findOne({ aadharno });
+    const isSchoolExist = await School.findOne({ udisecode });
 
-        if (isStudentExist) {
-            return res.status(422).json({ message: "Student already exists" });
-        }
+    if (isStudentExist) {
+        return res.status(422).json({ message: "Student already exists" });
+    }
 
-        if (isSchoolExist) {
+    if (!isSchoolExist) {
+        return res.status(404).json({ message: "School not found" });
+    }
 
-            const passwordMatch = await bcrypt.compare(password, isSchoolExist.password);
+    const passwordMatch = await bcrypt.compare(password, isSchoolExist.password);
+    if (!passwordMatch) {
+        return res.status(401).json({ message: "INVALID CREDENTIALS - Password not matching" });
+    }
 
-            if (!passwordMatch) {
-                window.alert('Password not matches')
-                return res.status(401).json({ message: "INVALID CREDENTIALS - Password not matching" });
-            } 
-            
-            else {
-                const newStudent = new Student({ fname, mname, lname, email, age, gender, phno, address, aadharno, year, udisecode, reason, password });
-                
-                const isStudentRegistered = await newStudent.save();
-                
-                if (isStudentRegistered) {
-                    window.alert('STUDENT DROPOUT DETAILS REGISTERED SUCCESSFULLY')
-                    res.status(201).json({ message: "STUDENT DROPOUT DETAILS REGISTERED SUCCESSFULLY" });
-                }
-            }
-        } 
+    const newStudent = new Student({
+        fname, mname, lname, email, age, gender,
+        phno, address, aadharno, year,
+        udisecode, reason, password,
+        isresolved: false
+    });
+
+    await newStudent.save();
+    return res.status(201).json({ message: "STUDENT DROPOUT DETAILS REGISTERED SUCCESSFULLY" });
 
     } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: "Internal Server Error" });
+    console.error("Server error:", err);
+    res.status(500).json({ error: "Internal Server Error" });
     }
 });
+  
 
 module.exports = router;
