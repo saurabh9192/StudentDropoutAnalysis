@@ -64,7 +64,7 @@ export default function StudentTable() {
           boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
           padding: '20px',
         }}>
-          {users.length > 0 && (
+          {students.length > 0 && (
             <table style={tableStyle}>
               <thead>
                 <tr>
@@ -86,7 +86,7 @@ export default function StudentTable() {
                 </tr>
               </thead>
               <tbody>
-                {users.map((user,index) => (
+                {students.map((user,index) => (
                   <tr key={user._id} style={trHoverStyle}>
                     <td style={thTdStyle}>{index + 1}</td>
                     <td style={thTdStyle}>{user.name}</td>
