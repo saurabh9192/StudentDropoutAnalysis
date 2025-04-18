@@ -53,6 +53,7 @@ export default function SchoolLogin() {
       else if (res.status === 200) { 
         window.alert("Success");
         navigate('/welcomeafterschoollogin');
+        localStorage.setItem('udisecode', udisecode);
       }
 
     } catch (error) {

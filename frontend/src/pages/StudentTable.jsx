@@ -2,12 +2,21 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 export default function StudentTable() {
-  const [users, setUsers] = useState([]);
+  const [students, setStudents] = useState([]);
   useEffect(() => {
-    axios
-      .get('https://studentdropoutanalysis-2.onrender.com/getStudents')
-      .then((response) => setUsers(response.data))
-      .catch((error) => console.log(error));
+    const fetchStudents = async () => {
+      const udisecode = localStorage.getItem('udisecode');
+
+      try {
+        const res = await fetch(`https://studentdropoutanalysis-2.onrender.com/students/${udisecode}`);
+        const data = await res.json();
+        setStudents(data);
+      } catch (error) {
+        console.error("Error fetching students:", error);
+      }
+    };
+
+    fetchStudents();
   }, []);
 
   const tableStyle = {
