@@ -5,7 +5,6 @@ export default function StudentTable() {
   useEffect(() => {
     const fetchStudents = async () => {
       const udisecode = localStorage.getItem('udisecode');
-
       try {
         const res = await fetch(`https://studentdropoutanalysis-2.onrender.com/students/${udisecode}`);
         const data = await res.json();
