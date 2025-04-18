@@ -27,6 +27,16 @@ app.get('/getStudents', (req, res) => {
     .catch(err => res.json(err))
 })
 
+app.get('/getschoolstudents/:udisecode', async (req, res) => {
+  const { udisecode } = req.params;
+  try {
+    const students = await Student.find({ udisecode }); // Replace with actual DB query logic
+    res.status(200).json(students);
+  } catch (err) {
+    res.status(500).json({ message: "Server Error", error: err.message });
+  }
+});
+
 app.get('/genderCount', async (req, res) => {
     try {
       const maleCount = await Student.countDocuments({ gender: 'Male' });
