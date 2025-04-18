@@ -6,7 +6,7 @@ export default function StudentTable() {
     const fetchStudents = async () => {
       const udisecode = localStorage.getItem('udisecode');
       try {
-        const res = await fetch(`https://studentdropoutanalysis-2.onrender.com/students/${udisecode}`);
+        const res = await fetch(`https://studentdropoutanalysis-2.onrender.com/getschoolstudents/${udisecode}`);
         const data = await res.json();
         setStudents(data);
       } catch (error) {
