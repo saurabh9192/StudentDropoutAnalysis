@@ -27,15 +27,18 @@ export default function WelcomeAfterSchoolLogin() {
     lname: "",
     email: "",
     age: "",
+    gender: "",           
     phno: "",
     address: "",
     aadharno: "",
     year: "",
     udisecode: "",
+    isresolved: false,    
     reason: "",
-    password: ""    
-
-  })
+    password: "",
+    tokens: []            
+  });
+  
 
   let name, value;
 
@@ -61,6 +64,7 @@ export default function WelcomeAfterSchoolLogin() {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
+    isresolved: false,    
           fname, mname, lname, email, age, gender, phno, address, aadharno, year, udisecode, reason, password
         })
       })
