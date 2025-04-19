@@ -7,11 +7,11 @@ import DoneIcon from '@mui/icons-material/Done';
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import KoshishLogo from '../assets/Others/koshish - Logo.png'
-
+import { useSchool } from '../context/SchoolContext';
 export default function SchoolLogin() {
 
   const navigate = useNavigate();
-
+  const { setUdiseCode } = useSchool();
   const [showPassword, setShowPassword] = useState(false); 
   const [password, setPassword] = useState(""); 
 
@@ -19,7 +19,6 @@ export default function SchoolLogin() {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
 
-  const [udisecode, setUdiseCode] = useState('');
   const [email, setEmail] = useState('');
 
   const submitLogin = async (e) => {
@@ -52,7 +51,7 @@ export default function SchoolLogin() {
       
       else if (res.status === 200) { 
         window.alert("Success");
-        localStorage.setItem('udisecode', udisecode);
+        setUdiseCode(udisecode);
         navigate('/welcomeafterschoollogin');
       }
 
