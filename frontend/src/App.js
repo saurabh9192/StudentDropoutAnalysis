@@ -35,7 +35,7 @@ export default function App() {
         <Route path='/statelogin' element={<StateLogin />} />
         <Route path='/analyticaldashboard' element={<AnalyticalDashboard />} />
         <Route path='/adminlogin' element={<AdminLogin />} />
-        <Route path='/welcomeafterschoollogin/' element={<WelcomeAfterSchoolLogin />} />
+        <Route path='/welcomeafterschoollogin' element={<WelcomeAfterSchoolLogin />} />
         <Route path='/welcomeafteradminlogin' element={<WelcomeAfterAdminLogin />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/schoolverify' element={<SchoolRegisterVerify />} />
