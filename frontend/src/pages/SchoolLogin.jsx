@@ -52,6 +52,7 @@ export default function SchoolLogin() {
       else if (res.status === 200) { 
         window.alert("Success");
         setUdiseCode(udisecode);
+        console.log("Navigating to welcome page");
         navigate('/welcomeafterschoollogin');
       }
 
