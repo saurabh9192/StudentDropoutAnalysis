@@ -14,7 +14,7 @@ export default function SchoolLogin() {
   const { setUdiseCode } = useSchool();
   const [showPassword, setShowPassword] = useState(false); 
   const [password, setPassword] = useState(""); 
-
+  const [udisecode, setLocalUdiseCode] = useState("");
   const togglePasswordVisibility = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
@@ -115,7 +115,7 @@ export default function SchoolLogin() {
                           name="udisecode"
                           required
                           style={{ maxWidth: "100%" }}
-                          onChange={(e) => setUdiseCode(e.target.value)}
+                          onChange={(e) => setLocalUdiseCode(e.target.value)}
                         />
                       </div>
                     </div>
