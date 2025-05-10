@@ -1,18 +1,20 @@
 
 import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { useNavigate } from 'react-router-dom';
-import Vector4 from "../assets/Vector/4.png";
-import KoshishLogo from '../assets/Others/koshish - Logo.png';
-
 export default function StudentTable() {
-  const [users, setUsers] = useState([]);
-  const navigate = useNavigate();
+  const [students, setStudents] = useState([]);
   useEffect(() => {
-    axios
-      .get('https://studentdropoutanalysis-2.onrender.com/getStudents')
-      .then((response) => setUsers(response.data))
-      .catch((error) => console.log(error));
+    const fetchStudents = async () => {
+      const udisecode = localStorage.getItem('udisecode');
+      try {
+        const res = await fetch(`https://studentdropoutanalysis-2.onrender.com/getschoolstudents/${udisecode}`);
+        const data = await res.json();
+        setStudents(data);
+      } catch (error) {
+        console.error("Error fetching students:", error);
+      }
+    };
+
+    fetchStudents();
   }, []);
 
   const tableStyle = {
@@ -60,7 +62,7 @@ export default function StudentTable() {
           boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
           padding: '20px',
         }}>
-          {users.length > 0 && (
+          {students.length > 0 && (
             <table style={tableStyle}>
               <thead>
                 <tr>
@@ -82,7 +84,7 @@ export default function StudentTable() {
                 </tr>
               </thead>
               <tbody>
-                {users.map((user,index) => (
+                {students.map((user,index) => (
                   <tr key={user._id} style={trHoverStyle}>
                     <td style={thTdStyle}>{index + 1}</td>
                     <td style={thTdStyle}>{user.name}</td>

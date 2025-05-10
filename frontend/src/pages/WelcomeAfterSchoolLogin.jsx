@@ -27,15 +27,18 @@ export default function WelcomeAfterSchoolLogin() {
     lname: "",
     email: "",
     age: "",
+    gender: "",           
     phno: "",
     address: "",
     aadharno: "",
     year: "",
     udisecode: "",
+    isresolved: false,    
     reason: "",
-    password: ""    
-
-  })
+    password: "",
+    tokens: []            
+  });
+  
 
   let name, value;
 
@@ -61,6 +64,7 @@ export default function WelcomeAfterSchoolLogin() {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
+    isresolved: false,    
           fname, mname, lname, email, age, gender, phno, address, aadharno, year, udisecode, reason, password
         })
       })
@@ -74,7 +78,7 @@ export default function WelcomeAfterSchoolLogin() {
       else
       {
         window.alert('Success')
-        navigate('/')
+        navigate('/welcomeafterschoollogin')
       }
   }
   
@@ -84,7 +88,7 @@ export default function WelcomeAfterSchoolLogin() {
         <div className="container mb-md-0 mt-5">
           <h1 className="au-text">Welcome School to <img src={KoshishLogo} width="180" className="logo" style={{width: "13rem", marginTop: '-0.5rem', marginLeft: '0rem'}} alt="Img"/></h1>
           <div>
-            <Link className="nav-link" aria-current="page" to="/table">
+            <Link className="nav-link" aria-current="page" to="/studenttable">
               <Button 
                 label="History" 
                 c="main-btn" 
