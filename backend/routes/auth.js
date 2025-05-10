@@ -335,8 +335,7 @@ router.post("/welcomeafterschoollogin", async (req, res) => {
     const newStudent = new Student({
         fname, mname, lname, email, age, gender,
         phno, address, aadharno, year,
-        udisecode, reason, password,
-        isresolved: false
+        udisecode, reason, password
     });
 
     await newStudent.save();
