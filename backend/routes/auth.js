@@ -300,14 +300,6 @@ router.post("/statelogin", async (req, res) => {
 
 
 
-//Welcome after school login
-router.get('/welcomeafterschoollogin', authenticate, (req, res) => {
-    // console.log('Authenticated User:', req.rootUser);
-    // res.status(200).json({ message: 'Welcome after school login', user: req.rootUser });
-    console.log('mj')
-    res.send(req.rootUser)
-});
-
 
 // New Student Dropout Route
 router.post("/welcomeafterschoollogin", async (req, res) => {
