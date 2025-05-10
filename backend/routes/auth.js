@@ -352,4 +352,11 @@ router.post("/welcomeafterschoollogin", async (req, res) => {
     }
 });
 
+router.get('/getStudents', (req, res) => {
+    Student.find()
+    .then(users => res.json(users))
+    .catch(err => res.json(err))
+})
+
+
 module.exports = router;
