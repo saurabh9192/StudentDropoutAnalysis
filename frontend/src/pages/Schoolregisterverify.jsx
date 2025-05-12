@@ -97,7 +97,7 @@ const SchoolRegisterVerify = () => {
           )}
         </form>
         {otpSent && (
-          <form onSubmit={handleVerifyOtp} style={styles.form}>
+          <form style={styles.form}>
             <input
               type="text"
               placeholder="Enter OTP"
@@ -106,7 +106,7 @@ const SchoolRegisterVerify = () => {
               required
               style={styles.input}
             />
-            <button type="submit" style={styles.button}>Verify</button>
+            <button type="submit" onClick={handleVerifyOtp} style={styles.button}>Verify</button>
             {canResend ? (
               <button
                 onClick={handleResendOtp}
