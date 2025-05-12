@@ -85,7 +85,7 @@ var Otp = 0;
   
   // Verify OTP Endpoint
   router.post('/verify-otp', async (req, res) => {
-    const {  otp } = req.body;
+    const {  email,otp } = req.body;
   
     if ( !otp) {
       return res.status(400).json({ success: false, message: 'OTP is required' });
