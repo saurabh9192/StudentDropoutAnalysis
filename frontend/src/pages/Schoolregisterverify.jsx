@@ -34,7 +34,7 @@ const SchoolRegisterVerify = () => {
   const handleVerifyOtp = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('https://studentdropoutanalysis-2.onrender.com/verify-otp', { otp, email }); // Include email in the request
+      const res = await axios.post('https://studentdropoutanalysis-2.onrender.com/verify-otp', { email,otp }); // Include email in the request
       if (res.data.success) {
         setMessage('OTP verified successfully');
         navigate('/schoollogin'); // Redirect to /schoollogin on successful verification
