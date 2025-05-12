@@ -61,73 +61,66 @@ async function sendOtpEmail(email, otp) {
       return error;
     }
   }
-var Otp = 0;
-  router.post('/send-otp', async (req, res) => {
-    const { email } = req.body;
-  
-    if (!email) {
-      return res.status(400).json({ success: false, message: 'Email is required' });
-    }
-  
-    try {
-      // Generate a new OTP
-      Otp = randomize('0', 6); // Generates a 6-digit OTP
-  
-      // Send the new OTP via email
-      await sendOtpEmail(email, Otp);
-  
-      return res.status(200).json({ success: true, message: 'OTP sent successfully' });
-    } catch (err) {
-      console.error('Error sending OTP:', err);
-      return res.status(500).json({ success: false, message: 'Server error' });
-    }
-  });
+const otpStore = {};
+router.post('/send-otp', async (req, res) => {
+  const { email } = req.body;
+
+  if (!email) {
+    return res.status(400).json({ success: false, message: 'Email is required' });
+  }
+
+  const otp = randomize('0', 6); // Generates a 6-digit OTP
+  otpStore[email] = otp;
+
+  try {
+    await sendOtpEmail(email, otp);
+    return res.status(200).json({ success: true, message: 'OTP sent successfully' });
+  } catch (err) {
+    console.error('Error sending OTP:', err);
+    return res.status(500).json({ success: false, message: 'Server error' });
+  }
+});
+
   
   // Verify OTP Endpoint
-  router.post('/verify-otp', async (req, res) => {
-    const {  email,otp } = req.body;
-  
-    if ( !otp) {
-      return res.status(400).json({ success: false, message: 'OTP is required' });
-    }
-  
-    try {
-  
-      if (otp !== Otp) {
-        return res.status(400).json({ success: false, message: 'Invalid OTP' });
-      }
-      
-  
-      return res.status(200).json({ success: true, message: 'OTP verified successfully' });
-    } catch (err) {
-      console.error('Error during OTP verification:', err);
-      return res.status(500).json({ success: false, message: 'Server error' });
-    }
-  });
+router.post('/verify-otp', async (req, res) => {
+  const { email, otp } = req.body;
+
+  if (!email || !otp) {
+    return res.status(400).json({ success: false, message: 'Email and OTP are required' });
+  }
+
+  const validOtp = otpStore[email];
+
+  if (validOtp !== otp) {
+    return res.status(400).json({ success: false, message: 'Invalid OTP' });
+  }
+
+  delete otpStore[email]; // Clear OTP after success
+  return res.status(200).json({ success: true, message: 'OTP verified successfully' });
+});
+
   
   // Resend OTP Endpoint
   router.post('/resend-otp', async (req, res) => {
-    const { email } = req.body;
-  
-    if (!email) {
-      return res.status(400).json({ success: false, message: 'Email is required' });
-    }
-  
-    try {
-      // Generate a new OTP
-      Otp = randomize('0', 6); // Generates a 6-digit OTP
-  
-      // Send the new OTP via email
-      await sendOtpEmail(email, Otp);
-  
-      // Update the OTP in the database
-  
-      return res.status(200).json({ success: true, message: 'OTP resent successfully' });
-    } catch (err) {
-      console.error('Error resending OTP:', err);
-      return res.status(500).json({ success: false, message: 'Server error' });
-    }
-  });
+  const { email } = req.body;
+
+  if (!email) {
+    return res.status(400).json({ success: false, message: 'Email is required' });
+  }
+
+  const newOtp = randomize('0', 6);
+  otpStore[email] = newOtp;
+
+  try {
+    await sendOtpEmail(email, newOtp);
+    return res.status(200).json({ success: true, message: 'OTP resent successfully' });
+  } catch (err) {
+    console.error('Error resending OTP:', err);
+    return res.status(500).json({ success: false, message: 'Server error' });
+  }
+});
+
 
 
 // New School Register Route
