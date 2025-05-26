@@ -69,16 +69,13 @@ export default function WelcomeAfterSchoolLogin() {
       })
 
       const data = await res.json();
-      if(res.status === 422 || !data)
-      {
+      if (!res.ok) {  // res.ok is false for status codes 400–599
         window.alert('Failed');
+        return;
       }
 
-      else
-      {
-        window.alert('Success')
-        navigate('/welcomeafterschoollogin')
-      }
+      window.alert('Success');
+      navigate('/welcomeafterschoollogin');
   }
   
   return (
