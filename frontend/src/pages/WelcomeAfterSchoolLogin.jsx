@@ -63,13 +63,14 @@ export default function WelcomeAfterSchoolLogin() {
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({  
+        body: JSON.stringify({
+  
           fname, mname, lname, email, age, gender, phno, address, aadharno, year, udisecode, reason, password
         })
       })
 
       const data = await res.json();
-      if (!res.ok) {  // res.ok is false for status codes 400–599
+      if (!res.ok || !data) {  // res.ok is false for status codes 400–599
         window.alert('Failed');
         return;
       }
