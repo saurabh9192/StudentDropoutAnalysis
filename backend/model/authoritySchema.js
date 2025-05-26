@@ -72,5 +72,5 @@ const authoritySchema = new mongoose.Schema({
 
 
 // Export models
-const Student = mongoose.model('STUDENTUSER', studentSchema);
+const Student = mongoose.model('AUTHORITYUSER', authoritySchema);
 module.exports =  Student ;

@@ -111,5 +111,5 @@ password: {
 
 
 // Export models
-const Student = mongoose.model('STUDENTUSER', studentSchema);
+const Student = mongoose.model('STUDENTUSERS', studentSchema);
 module.exports =  Student ;
