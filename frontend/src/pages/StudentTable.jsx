@@ -5,18 +5,18 @@ export default function StudentTable() {
   const [students, setStudents] = useState([]);
   const { udisecode } = useSchool();
   useEffect(() => {
-    const fetchStudents = async () => {
-      try {
-        const res = await fetch(`https://studentdropoutanalysis-2.onrender.com/getschoolstudents/${udisecode}`);
-        const data = await res.json();
-        setStudents(data);
-      } catch (error) {
-        console.error("Error fetching students:", error);
-      }
-    };
+  const fetchStudents = async () => {
+    try {
+      const res = await fetch(`https://studentdropoutanalysis-2.onrender.com/getschoolstudents/${udisecode}`);
+      const data = await res.json();
+      setStudents(data);
+    } catch (error) {
+      console.error("Error fetching students:", error);
+    }
+  };
 
-    fetchStudents();
-  }, []);
+  fetchStudents();
+}, [udisecode]); 
 
   const tableStyle = {
    // width: '100%', // Adjust the width as needed
