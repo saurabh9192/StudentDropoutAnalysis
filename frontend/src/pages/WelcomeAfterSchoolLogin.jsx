@@ -63,8 +63,7 @@ export default function WelcomeAfterSchoolLogin() {
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({
-    isresolved: false,    
+        body: JSON.stringify({  
           fname, mname, lname, email, age, gender, phno, address, aadharno, year, udisecode, reason, password
         })
       })
