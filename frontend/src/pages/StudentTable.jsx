@@ -1,10 +1,11 @@
 
 import React, { useEffect, useState } from "react";
+import { useSchool } from "../context/SchoolContext";
 export default function StudentTable() {
   const [students, setStudents] = useState([]);
+  const { udisecode } = useSchool();
   useEffect(() => {
     const fetchStudents = async () => {
-      const udisecode = 78459978455
       try {
         const res = await fetch(`https://studentdropoutanalysis-2.onrender.com/getschoolstudents/${udisecode}`);
         const data = await res.json();
