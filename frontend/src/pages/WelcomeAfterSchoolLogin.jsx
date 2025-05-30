@@ -53,31 +53,59 @@ export default function WelcomeAfterSchoolLogin() {
     setStudentUser({ ...studentUser, [name]: value });
   }
   
-  const PostData = async(e) => {
-      e.preventDefault();
-      // console.log('Form Data:', studentUser);
-      const {fname, mname, lname, email, age, gender, phno, address, aadharno, year, udisecode, reason, password} = studentUser
+  const PostData = async (e) => {
+  e.preventDefault();
+  const {
+    fname, mname, lname, email, age, gender,
+    phno, address, aadharno, year, udisecode,
+    reason, password
+  } = studentUser;
 
-      const res = await fetch("https://studentdropoutanalysis-2.onrender.com/welcomeafterschoollogin", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-  
-          fname, mname, lname, email, age, gender, phno, address, aadharno, year, udisecode, reason, password
-        })
+  try {
+    const res = await fetch("https://studentdropoutanalysis-2.onrender.com/welcomeafterschoollogin", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        fname, mname, lname, email, age, gender,
+        phno, address, aadharno, year, udisecode,
+        reason, password
       })
+    });
 
-      const data = await res.json();
-      if (!res.ok || !data) {  // res.ok is false for status codes 400–599
-        window.alert('Failed');
-        return;
-      }
+    const data = await res.json();
 
-      window.alert('Success');
-      navigate('/welcomeafterschoollogin');
+    // Log the response
+    console.log("Response status:", res.status);
+    console.log("Response data:", data);
+
+    if (res.status === 201) {
+      console.log("Student dropout details registered successfully.");
+      window.alert("Success");
+      navigate("/welcomeafterschoollogin");
+    } else if (res.status === 422 && data.message === "Student already exists") {
+      console.log("Student already exists.");
+      window.alert("Student already exists.");
+    } else if (res.status === 404 && data.message === "School not found") {
+      console.log("School not found.");
+      window.alert("School not found.");
+    } else if (res.status === 401 && data.message.includes("INVALID CREDENTIALS")) {
+      console.log("Invalid credentials: Password not matching.");
+      window.alert("Invalid credentials: Password not matching.");
+    } else if (res.status === 422 && data.message === "Please fill all the details") {
+      console.log("Please fill all the details.");
+      window.alert("Please fill all the details.");
+    } else {
+      console.log("Unexpected error:", data);
+      window.alert("An unexpected error occurred.");
+    }
+
+  } catch (error) {
+    console.error("Error in PostData:", error);
+    window.alert("Server error occurred. Check console for details.");
   }
+};
   
   return (
     <section id="about">
