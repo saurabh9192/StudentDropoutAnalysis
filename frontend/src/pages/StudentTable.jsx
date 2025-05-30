@@ -68,40 +68,37 @@ export default function StudentTable() {
               <thead>
                 <tr>
                  <th style={thStyle}>Index</th>
-                  <th style={thStyle}>Name </th>
-                  <th style={thStyle}>School</th>
-                  <th style={thStyle}>Udise Code</th>
-                  <th style={thStyle}>State</th>
-                  <th style={thStyle}>District</th>
-                  <th style={thStyle}>Taluka</th>
-                  <th style={thStyle}>City</th>
-                  <th style={thStyle}>Pincode</th>
-                  <th style={thStyle}>Board</th>
-                  <th style={thStyle}>Class</th>
-                  <th style={thStyle}>Phone No</th>
+                  <th style={thStyle}>First Name </th>
+                  <th style={thStyle}>Middle Name </th>
+                  <th style={thStyle}>Last Name </th>
                   <th style={thStyle}>Email</th>
+                  <th style={thStyle}>Age</th>
                   <th style={thStyle}>Gender</th>
+                  <th style={thStyle}>Phone Number</th>
+                  <th style={thStyle}>Address</th>
+                  <th style={thStyle}>Aadhar Number</th>
+                  <th style={thStyle}>Udise Code</th>
                   <th style={thStyle}>Reason</th>
+                  <th style={thStyle}>Resolved</th>
                 </tr>
               </thead>
               <tbody>
                 {students.map((user,index) => (
                   <tr key={user._id} style={trHoverStyle}>
                     <td style={thTdStyle}>{index + 1}</td>
-                    <td style={thTdStyle}>{user.name}</td>
-                    <td style={thTdStyle}>{user.school_name}</td>
-                    <td style={thTdStyle}>{user.udise_code}</td>
-                    <td style={thTdStyle}>{user.state}</td>
-                    <td style={thTdStyle}>{user.district}</td>
-                    <td style={thTdStyle}>{user.taluka}</td>
-                    <td style={thTdStyle}>{user.city}</td>
-                    <td style={thTdStyle}>{user.pincode}</td>
-                    <td style={thTdStyle}>{user.board}</td>
-                    <td style={thTdStyle}>{user.class}</td>
-                    <td style={thTdStyle}>{user.phone_number}</td>
+                    <td style={thTdStyle}>{user.fname}</td>
+                    <td style={thTdStyle}>{user.mname}</td>
+                    <td style={thTdStyle}>{user.lname}</td>
                     <td style={thTdStyle}>{user.email}</td>
+                    <td style={thTdStyle}>{user.age}</td>
                     <td style={thTdStyle}>{user.gender}</td>
+                    <td style={thTdStyle}>{user.phno}</td>
+                    <td style={thTdStyle}>{user.address}</td>
+                    <td style={thTdStyle}>{user.aadharno}</td>
+                    <td style={thTdStyle}>{user.class}</td>
+                    <td style={thTdStyle}>{user.udisecode}</td>
                     <td style={thTdStyle}>{user.reason}</td>
+                    <td style={thTdStyle}>{user.isresolved}</td>
                   </tr>
                 ))}
               </tbody>
