@@ -283,7 +283,7 @@ export default function WelcomeAfterSchoolLogin() {
                       </label>
                       <div className="col-lg-12">
                         <input
-                          type="text"
+                          type="email"
                           id="email"
                           className="form-control"
                           name="email"
@@ -318,7 +318,7 @@ export default function WelcomeAfterSchoolLogin() {
                       </label>
                       <div className="col-lg-12">
                         <input
-                          type="text"
+                          type="number"
                           id="age"
                           className="form-control"
                           name="age"
@@ -355,6 +355,7 @@ export default function WelcomeAfterSchoolLogin() {
           <select
             id="gender"
             className="form-control dropdown"
+            type="text"
             name="gender"
             required
             style={{ maxWidth: '100%', height: '50px' }}
@@ -397,7 +398,7 @@ export default function WelcomeAfterSchoolLogin() {
                       </label>
                       <div className="col-lg-12">
                         <input
-                          type="text"
+                          type="number"
                           id="phno"
                           className="form-control"
                           name="phno"
@@ -466,7 +467,7 @@ export default function WelcomeAfterSchoolLogin() {
                       </label>
                       <div className="col-lg-12">
                         <input
-                          type="text"
+                          type="number"
                           id="aadharno"
                           className="form-control"
                           name="aadharno"
@@ -505,7 +506,7 @@ export default function WelcomeAfterSchoolLogin() {
                       </label>
                       <div className="col-lg-12">
                         <input
-                          type="text"
+                          type="number"
                           id="year"
                           className="form-control"
                           name="year"
@@ -540,7 +541,7 @@ export default function WelcomeAfterSchoolLogin() {
                       </label>
                       <div className="col-lg-12">
                         <input
-                          type="text"
+                          type="number"
                           id="udisecode"
                           className="form-control"
                           name="udisecode"
@@ -578,6 +579,7 @@ export default function WelcomeAfterSchoolLogin() {
           <select
             id="reason"
             className="form-control dropdown"
+            type="text"
             name="reason"
             required
             style={{ maxWidth: '100%', height: '50px' }}
