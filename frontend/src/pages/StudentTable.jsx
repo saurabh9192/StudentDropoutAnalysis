@@ -97,7 +97,7 @@ export default function StudentTable() {
                     <td style={thTdStyle}>{user.aadharno}</td>
                     <td style={thTdStyle}>{user.udisecode}</td>
                     <td style={thTdStyle}>{user.reason}</td>
-                    <td style={thTdStyle}>{user.isresolved}</td>
+                    <td style={thTdStyle}>{user.isresolved ? "yes" : "no"}</td>
                   </tr>
                 ))}
               </tbody>
