@@ -141,7 +141,7 @@ schoolSchema.pre('save', async function(next) {
 schoolSchema.methods.generateAuthToken = async function () {
 
     try {
-        let token = jwt.sign({_id: this._id.toString()}, process.env.SECRET_KEY, { expiresIn: "30d"})
+        let token = jwt.sign({_id: this._id.toString()}, mysecretkey123, { expiresIn: "30d"})
         console.log('Generated Token:', token);
         this.tokens = this.tokens.concat({token: token}) 
         await this.save()
