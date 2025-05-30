@@ -33,15 +33,11 @@ export default function WelcomeAfterSchoolLogin() {
   const[udisecode, setUdisecode] = useState("");
   const[isresolved, setIsresolved] = useState(false);
   const[reason, setReason] = useState("");
-  const[tokens, setTokens] = useState([]);
+  // const[tokens, setTokens] = useState([]);
   
   const PostData = async (e) => {
   e.preventDefault();
-  const {
-    fname, mname, lname, email, age, gender,
-    phno, address, aadharno, year, udisecode,isresolved,
-    reason, password
-  } = studentUser;
+  
 
   try {
     const res = await fetch("https://studentdropoutanalysis-2.onrender.com/welcomeafterschoollogin", {
@@ -198,7 +194,7 @@ export default function WelcomeAfterSchoolLogin() {
                           name="mname"
                           required
                           style={{ maxWidth: "100%" }}
-                          onChange={(e) => setFMname(e.target.value)}
+                          onChange={(e) => setMname(e.target.value)}
                         />
                       </div>
                     </div>
@@ -232,7 +228,7 @@ export default function WelcomeAfterSchoolLogin() {
                           name="lname"
                           required
                           style={{ maxWidth: "100%" }}
-                          onChange={(e) => setFLname(e.target.value)}
+                          onChange={(e) => setLname(e.target.value)}
                         />
                       </div>
                     </div>
@@ -597,7 +593,7 @@ export default function WelcomeAfterSchoolLogin() {
       required
       style={{ maxWidth: "100%", height: "50px" }}
       value={password}
-      onChange={handleInputs}
+      onChange={(e) => setPassword(e.target.value)}
     />
     <button
       type="button"
