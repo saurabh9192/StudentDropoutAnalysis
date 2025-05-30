@@ -310,7 +310,7 @@ router.post("/welcomeafterschoollogin", async (req, res) => {
         phno, address, aadharno, year,
         udisecode,isresolved, reason, password
     } = req.body;
-    
+    console.log(req.body);
     if (!fname || !mname || !lname || !email || !age || !gender ||
         !phno || !address || !aadharno || !year || !udisecode || !isresolved ||
         !reason || !password) {
