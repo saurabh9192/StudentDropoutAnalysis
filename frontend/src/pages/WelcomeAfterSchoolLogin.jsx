@@ -31,7 +31,7 @@ export default function WelcomeAfterSchoolLogin() {
   const[aadharno, setAadharno] = useState("");
   const[year, setYear] = useState("");
   const[udisecode, setUdisecode] = useState("");
-  const[isresolved, setIsresolved] = useState(false);
+  // const[isresolved, setIsresolved] = useState(false);
   const[reason, setReason] = useState("");
   // const[tokens, setTokens] = useState([]);
   
@@ -47,7 +47,7 @@ export default function WelcomeAfterSchoolLogin() {
       },
       body: JSON.stringify({
         fname, mname, lname, email, age, gender,
-        phno, address, aadharno, year, udisecode,isresolved,
+        phno, address, aadharno, year, udisecode,
         reason, password
       })
     });
