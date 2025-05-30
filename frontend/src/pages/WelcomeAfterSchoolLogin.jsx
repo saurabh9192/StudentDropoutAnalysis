@@ -57,7 +57,7 @@ export default function WelcomeAfterSchoolLogin() {
   e.preventDefault();
   const {
     fname, mname, lname, email, age, gender,
-    phno, address, aadharno, year, udisecode,
+    phno, address, aadharno, year, udisecode,isresolved,
     reason, password
   } = studentUser;
 
@@ -69,7 +69,7 @@ export default function WelcomeAfterSchoolLogin() {
       },
       body: JSON.stringify({
         fname, mname, lname, email, age, gender,
-        phno, address, aadharno, year, udisecode,
+        phno, address, aadharno, year, udisecode,isresolved,
         reason, password
       })
     });
