@@ -312,7 +312,7 @@ router.post("/welcomeafterschoollogin", async (req, res) => {
     } = req.body;
     console.log(req.body);
     if (!fname || !mname || !lname || !email || !age || !gender ||
-        !phno || !address || !aadharno || !year || !udisecode || !isresolved ||
+        !phno || !address || !aadharno || !year || !udisecode ||
         !reason || !password) {
         return res.status(422).json({ message: "Please fill all the details" });
     }
@@ -332,7 +332,8 @@ router.post("/welcomeafterschoollogin", async (req, res) => {
     if (!passwordMatch) {
         return res.status(401).json({ message: "INVALID CREDENTIALS - Password not matching" });
     }
-
+    const isresolved = false; // Default value for isresolved
+    // Create a new student dropout record
     const newStudent = new Student({
         fname, mname, lname, email, age, gender,
         phno, address, aadharno, year,
