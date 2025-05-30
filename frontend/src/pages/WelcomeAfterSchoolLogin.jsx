@@ -20,38 +20,20 @@ export default function WelcomeAfterSchoolLogin() {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
 
-
-  const [studentUser, setStudentUser] = useState({
-    fname: "",
-    mname: "",
-    lname: "",
-    email: "",
-    age: "",
-    gender: "",           
-    phno: "",
-    address: "",
-    aadharno: "",
-    year: "",
-    udisecode: "",
-    isresolved: false,    
-    reason: "",
-    password: "",
-    tokens: []            
-  });
-  
-
-  let name, value;
-
-  function handleInputs(e) {
-    name = e.target.name;
-    value = e.target.value;
-    
-    if (name === 'password') {
-      setPassword(value);
-    }
-    
-    setStudentUser({ ...studentUser, [name]: value });
-  }
+  const[fname, setFname] = useState("");
+  const[mname, setMname] = useState(""); 
+  const[lname, setLname] = useState("");
+  const[email, setEmail] = useState("");
+  const[age, setAge] = useState("");
+  const[gender, setGender] = useState("");
+  const[phno, setPhno] = useState("");
+  const[address, setAddress] = useState("");
+  const[aadharno, setAadharno] = useState("");
+  const[year, setYear] = useState("");
+  const[udisecode, setUdisecode] = useState("");
+  const[isresolved, setIsresolved] = useState(false);
+  const[reason, setReason] = useState("");
+  const[tokens, setTokens] = useState([]);
   
   const PostData = async (e) => {
   e.preventDefault();
@@ -183,8 +165,7 @@ export default function WelcomeAfterSchoolLogin() {
                           name="fname"
                           required
                           style={{ maxWidth: "100%" }}
-                          value={studentUser.fname}
-                          onChange={handleInputs}
+                          onChange={(e) => setFname(e.target.value)}
                         />
                       </div>
                     </div>
@@ -217,8 +198,7 @@ export default function WelcomeAfterSchoolLogin() {
                           name="mname"
                           required
                           style={{ maxWidth: "100%" }}
-                          value={studentUser.mname}
-                          onChange={handleInputs}
+                          onChange={(e) => setFMname(e.target.value)}
                         />
                       </div>
                     </div>
@@ -252,8 +232,7 @@ export default function WelcomeAfterSchoolLogin() {
                           name="lname"
                           required
                           style={{ maxWidth: "100%" }}
-                          value={studentUser.lname}
-                          onChange={handleInputs}
+                          onChange={(e) => setFLname(e.target.value)}
                         />
                       </div>
                     </div>
@@ -289,8 +268,7 @@ export default function WelcomeAfterSchoolLogin() {
                           name="email"
                           required
                           style={{ maxWidth: "100%" }}
-                          value={studentUser.email}
-                          onChange={handleInputs}
+                          onChange={(e) => setEmail(e.target.value)}
                         />
                       </div>
                     </div>
@@ -324,8 +302,7 @@ export default function WelcomeAfterSchoolLogin() {
                           name="age"
                           required
                           style={{ maxWidth: "100%" }}
-                          value={studentUser.age}
-                          onChange={handleInputs}
+                          onChange={(e) => setAge(e.target.value)}
                         />
                       </div>
                     </div>
@@ -359,8 +336,7 @@ export default function WelcomeAfterSchoolLogin() {
             name="gender"
             required
             style={{ maxWidth: '100%', height: '50px' }}
-            value={studentUser.gender}
-            onChange={handleInputs}
+            onChange={(e) => setGender(e.target.value)}
           >
             <option value="">Select Gender</option>
             <option value="female">Male</option>
@@ -404,8 +380,7 @@ export default function WelcomeAfterSchoolLogin() {
                           name="phno"
                           required
                           style={{ maxWidth: "100%" }}
-                          value={studentUser.phno}
-                          onChange={handleInputs}
+                          onChange={(e) => setPhno(e.target.value)}
                         />
                       </div>
                     </div>
@@ -438,8 +413,7 @@ export default function WelcomeAfterSchoolLogin() {
                           name="address"
                           required
                           style={{ maxWidth: "100%" }}
-                          value={studentUser.address}
-                          onChange={handleInputs}
+                          onChange={(e) => setAddress(e.target.value)}
                         />
                       </div>
                     </div>
@@ -473,8 +447,7 @@ export default function WelcomeAfterSchoolLogin() {
                           name="aadharno"
                           required
                           style={{ maxWidth: "100%" }}
-                          value={studentUser.aadharno}
-                          onChange={handleInputs}
+                          onChange={(e) => setAadharno(e.target.value)}
                         />
                       </div>
                     </div>
@@ -512,8 +485,7 @@ export default function WelcomeAfterSchoolLogin() {
                           name="year"
                           required
                           style={{ maxWidth: "100%" }}
-                          value={studentUser.year}
-                          onChange={handleInputs}
+                          onChange={(e) => setYear(e.target.value)}
                         />
                       </div>
                     </div>
@@ -547,8 +519,7 @@ export default function WelcomeAfterSchoolLogin() {
                           name="udisecode"
                           required
                           style={{ maxWidth: "100%" }}
-                          value={studentUser.udisecode}
-                          onChange={handleInputs}
+                          onChange={(e) => setUdisecode(e.target.value)}
                         />
                       </div>
                     </div>
@@ -583,8 +554,7 @@ export default function WelcomeAfterSchoolLogin() {
             name="reason"
             required
             style={{ maxWidth: '100%', height: '50px' }}
-            value={studentUser.reason}
-            onChange={handleInputs}
+            onChange={(e) => setReason(e.target.value)}
           >
             <option value="">Reason for Dropout</option>
             <option value="academic">Academic</option>
@@ -598,41 +568,6 @@ export default function WelcomeAfterSchoolLogin() {
         </div>
       </div>
                   </div>
-
-                  {/* <div className="col-lg-4 col-md-12 mt-3 d-flex align-items-center justify-content-center row-divider">
-                    <div className="form-group row">
-                      <label
-                        htmlFor="profilepic"
-                        className="col-form-label"
-                        style={{ position: "relative", cursor: "pointer" }}
-                      >
-                        Profile Picture
-                        <span
-                          style={{
-                            color: "red",
-                            fontSize: "15px",
-                            position: "absolute",
-                            top: "5px",
-                          }}
-                        >
-                          *
-                        </span>
-                      </label>
-                      <div className="col-lg-12">
-                        <input
-                          type="file"
-                          id="profilepic"
-                          className="form-control"
-                          name="profilepic"
-                          accept="image/*"
-                          required
-                          style={{ maxWidth: "100%" }}
-                          value={studentUser.profilepic}
-                          onChange={handleInputs}
-                        />
-                      </div>
-                    </div>
-                  </div> */}
 
                   <div className="col-lg-4 col-md-12 mt-3 d-flex align-items-center justify-content-center row-divider">
                   <div className="form-group row">
@@ -705,16 +640,10 @@ export default function WelcomeAfterSchoolLogin() {
                 <div className="row">
                   <div className="col-sm-6 col-md-6 d-flex justify-content-center align-items-center">
                     <button className="second-btn" type="reset">Reset <ClearIcon /> </button>
-                    {/* <Link className="nav-link" aria-current="page" to="/">
-                      <Button label="Reset" c="second-btn" type="reset" />
-                    </Link> */}
                   </div>
 
                   <div className="col-sm-6 col-md-6 d-flex justify-content-center align-items-center">
                     <button className="main-btn" type="submit" onClick={PostData}>Submit <DoneIcon /> </button>
-                    {/* <Link className="nav-link" aria-current="page" to="/schoollogin">
-                      <Button label="Submit" c="main-btn" type="submit" />
-                    </Link> */}
                   </div>
                 </div>
               </form>
