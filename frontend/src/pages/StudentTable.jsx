@@ -95,7 +95,6 @@ export default function StudentTable() {
                     <td style={thTdStyle}>{user.phno}</td>
                     <td style={thTdStyle}>{user.address}</td>
                     <td style={thTdStyle}>{user.aadharno}</td>
-                    <td style={thTdStyle}>{user.class}</td>
                     <td style={thTdStyle}>{user.udisecode}</td>
                     <td style={thTdStyle}>{user.reason}</td>
                     <td style={thTdStyle}>{user.isresolved}</td>
