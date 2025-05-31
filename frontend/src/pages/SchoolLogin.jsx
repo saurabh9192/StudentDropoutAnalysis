@@ -8,6 +8,7 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import KoshishLogo from '../assets/Others/koshish - Logo.png'
 import { useSchool } from '../context/SchoolContext';
+import { AuthContext } from '../context/AuthContext';
 export default function SchoolLogin() {
 
   const navigate = useNavigate();
@@ -15,6 +16,7 @@ export default function SchoolLogin() {
   const [showPassword, setShowPassword] = useState(false); 
   const [password, setPassword] = useState(""); 
   const [udisecode, setLocalUdiseCode] = useState("");
+  const { login } = useContext(AuthContext);
   const togglePasswordVisibility = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
@@ -52,6 +54,7 @@ export default function SchoolLogin() {
       else if (res.status === 200) { 
         window.alert("Success");
         setUdiseCode(udisecode);
+        login();
         console.log("Navigating to welcome page");
         navigate('/welcomeafterschoollogin');
       }

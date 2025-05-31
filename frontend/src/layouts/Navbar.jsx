@@ -1,11 +1,11 @@
 
-  import React from 'react'
   import {Link, useLocation } from 'react-router-dom'
   import Button from '../components/Button'
   import KoshishLogo from '../assets/Others/koshish - Logo.png'
-
+  import { AuthContext } from '../context/AuthContext';
   export default function Navbar() {
     const location = useLocation();
+    const { isLoggedIn, login, logout } = useContext(AuthContext);
       return(
         <header id="navbar">
           <nav className="navbar navbar-expand-lg">
@@ -30,11 +30,9 @@
                         </li>	
                         
                         <li className="nav-item">
-                {location.pathname === '/welcomeafterschoollogin' || location.pathname === '/welcomeafterstatelogin' || location.pathname === '/welcomeafteradminlogin' || location.pathname === '/analyticaldashboard'? (
-                  <Link className="nav-link" to="/">
-                  <div style={{marginTop: '0.5rem', paddingLeft: '0.8rem', paddingRight: '2rem'}}>
-                    <Button label="Logout" c="login-btn" type="login" />
-                  </div>
+                {isLoggedIn ? (
+                  <Link className="nav-link" to="/login">
+                    <Button label="Logout" c="login-btn" type="logout" />
                   </Link>
                 ) : (
                   <Link className="nav-link" to="/login">

@@ -21,37 +21,39 @@ import StudentTable from './pages/StudentTable';
 
 // Import the SchoolProvider for context
 import { SchoolProvider } from './context/SchoolContext';
-
+import { AuthProvider } from './context/AuthContext';
 export default function App() {
   const location = useLocation();
 
   return (
     // Wrap everything inside SchoolProvider
-    <SchoolProvider>
-      <>
-        {/* Navbar visible except on /dashboard */}
-        {location.pathname !== '/dashboard' && <Navbar />}
+    <AuthProvider>
+      <SchoolProvider>
+        <>
+          {/* Navbar visible except on /dashboard */}
+          {location.pathname !== '/dashboard' && <Navbar />}
 
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/aboutus' element={<About />} />
-          <Route path='/services' element={<Services />} />
-          <Route path='/schoolregister' element={<SchoolRegister />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/schoollogin' element={<SchoolLogin />} />
-          <Route path='/statelogin' element={<StateLogin />} />
-          <Route path='/analyticaldashboard' element={<AnalyticalDashboard />} />
-          <Route path='/adminlogin' element={<AdminLogin />} />
-          <Route path='/welcomeafterschoollogin' element={<WelcomeAfterSchoolLogin />} />
-          <Route path='/welcomeafteradminlogin' element={<WelcomeAfterAdminLogin />} />
-          <Route path='/dashboard' element={<Dashboard />} />
-          <Route path='/schoolverify' element={<SchoolRegisterVerify />} />
-          <Route path='/studenttable' element={<StudentTable />} />
-          <Route path='*' element={<Error404 />} />
-        </Routes>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/aboutus' element={<About />} />
+            <Route path='/services' element={<Services />} />
+            <Route path='/schoolregister' element={<SchoolRegister />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/schoollogin' element={<SchoolLogin />} />
+            <Route path='/statelogin' element={<StateLogin />} />
+            <Route path='/analyticaldashboard' element={<AnalyticalDashboard />} />
+            <Route path='/adminlogin' element={<AdminLogin />} />
+            <Route path='/welcomeafterschoollogin' element={<WelcomeAfterSchoolLogin />} />
+            <Route path='/welcomeafteradminlogin' element={<WelcomeAfterAdminLogin />} />
+            <Route path='/dashboard' element={<Dashboard />} />
+            <Route path='/schoolverify' element={<SchoolRegisterVerify />} />
+            <Route path='/studenttable' element={<StudentTable />} />
+            <Route path='*' element={<Error404 />} />
+          </Routes>
 
-        <Footer />
-      </>
-    </SchoolProvider>
+          <Footer />
+        </>
+      </SchoolProvider>
+    </AuthProvider>
   );
 }
