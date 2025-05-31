@@ -30,9 +30,9 @@
                         
                         <li className="nav-item">
                 {isLoggedIn ? (
-                  <Link className="nav-link" to="/login">
-                    <Button label="Logout" c="login-btn" type="logout" onClick={logout} />
-                  </Link>
+                  <button className="nav-link login-btn" to="/login" onClick={logout}>
+                    Logout
+                  </button>
                 ) : (
                   <Link className="nav-link" to="/login">
                     <Button label="Login" c="login-btn" type="login" />
