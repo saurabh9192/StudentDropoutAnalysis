@@ -335,8 +335,8 @@ export default function WelcomeAfterSchoolLogin() {
             onChange={(e) => setGender(e.target.value)}
           >
             <option value="">Select Gender</option>
-            <option value="female">Male</option>
-            <option value="male">Female</option>
+            <option value="female">Female</option>
+            <option value="male">Male</option>
             <option value="other">Other</option>
             <option value="Prefer not to answer">Prefer not to Answer</option>
           </select>
@@ -552,7 +552,6 @@ export default function WelcomeAfterSchoolLogin() {
             style={{ maxWidth: '100%', height: '50px' }}
             onChange={(e) => setReason(e.target.value)}
           >
-            <option value="">Reason for Dropout</option>
             <option value="academic">Academic</option>
             <option value="social">Social</option>
             <option value="financial">Financial</option>
