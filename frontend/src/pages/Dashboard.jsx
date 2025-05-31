@@ -74,7 +74,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'space-around', paddingTop: '50px' }}>
+    <div style={{ display: 'flex', justifyContent: 'space-around', paddingTop: '100px' }}>
       <div style={{ textAlign: 'center' }}>
         <h2>Gender Distribution</h2>
         <PieChart width={400} height={400}>
@@ -103,7 +103,7 @@ const Dashboard = () => {
 
       <div style={{ textAlign: 'center' }}>
         <h2>Category Distribution</h2>
-        <PieChart width={550} height={450}>
+        <PieChart width={650} height={450}>
           <Pie
             data={categoryData}
             cx="50%"
