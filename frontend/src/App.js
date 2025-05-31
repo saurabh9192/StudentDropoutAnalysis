@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Navbar from './layouts/Navbar';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -23,14 +23,13 @@ import StudentTable from './pages/StudentTable';
 import { SchoolProvider } from './context/SchoolContext';
 import { AuthProvider } from './context/AuthContext';
 export default function App() {
-  const location = useLocation();
 
   return (
     // Wrap everything inside SchoolProvider
     <AuthProvider>
       <SchoolProvider>
         <>
-
+         <Navbar />
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/aboutus' element={<About />} />
