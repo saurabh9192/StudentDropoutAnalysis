@@ -1,10 +1,16 @@
   import { useContext } from 'react';
-  import {Link } from 'react-router-dom'
+  import {Link,useNavigate } from 'react-router-dom'
   import Button from '../components/Button'
   import KoshishLogo from '../assets/Others/koshish - Logo.png'
   import { AuthContext } from '../context/AuthContext';
   export default function Navbar() {
     const { isLoggedIn,logout} = useContext(AuthContext);
+    const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();         
+    navigate('/login'); 
+  };
       return(
         <header id="navbar">
           <nav className="navbar navbar-expand-lg">
@@ -30,7 +36,7 @@
                         
                         <li className="nav-item">
                 {isLoggedIn ? (
-                  <button className="nav-link login-btn" to="/login" onClick={logout}>
+                  <button className="nav-link login-btn" onClick={handleLogout}>
                     Logout
                   </button>
                 ) : (
