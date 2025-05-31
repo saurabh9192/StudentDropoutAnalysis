@@ -375,11 +375,12 @@ router.get('/categorycount', async (req, res) => {
     try {
       const perCount = await Student.countDocuments({ reason: 'personal' });
       const finCount = await Student.countDocuments({ reason: 'financial' });
-      const traCount = await Student.countDocuments({ reason: 'travel' });
-      const helCount = await Student.countDocuments({ reason: 'health' });
+      const acaCount = await Student.countDocuments({ reason: 'academic' });
+      const sociCount = await Student.countDocuments({ reason: 'social' });
+      const worCount = await Student.countDocuments({ reason: 'work' });
       const othCount = await Student.countDocuments({ reason: 'others' });
 
-      res.json({ personal: perCount, financial: finCount, travel:traCount,health:helCount,others:othCount});
+      res.json({ personal: perCount, financial: finCount, academic:acaCount,work:worCount,social:sociCount,others:othCount});
     } catch (error) {
       res.status(500).json({ error: 'Error fetching data' });
     }
