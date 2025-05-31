@@ -37,16 +37,6 @@ app.get('/getschoolstudents/:udisecode', async (req, res) => {
   }
 });
 
-app.get('/genderCount', async (req, res) => {
-    try {
-      const maleCount = await Student.countDocuments({ gender: 'Male' });
-      const femaleCount = await Student.countDocuments({ gender: 'Female' });
-      res.json({ male: maleCount, female: femaleCount });
-    } catch (error) {
-      res.status(500).json({ error: 'Error fetching data' });
-    }
-});
-
 app.get('/categorycount', async (req, res) => {
     try {
       const perCount = await Student.countDocuments({ reason: 'personal' });
