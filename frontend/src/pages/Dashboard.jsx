@@ -34,7 +34,7 @@ const Dashboard = () => {
       .catch((error) => console.error('Error fetching category data:', error));
   }, []);
 
-  const COLORS_GENDER = ['#0088FE', '#FF69B4']; // Colors for male and female
+  const COLORS_GENDER = ['#0088FE', '#FF69B4'];
   const COLORS_CATEGORY = [
     '#FFBB28',
     '#00C49F',
@@ -51,7 +51,6 @@ const Dashboard = () => {
     innerRadius,
     outerRadius,
     percent,
-    index,
     name,
   }) => {
     const RADIAN = Math.PI / 180;
@@ -74,16 +73,24 @@ const Dashboard = () => {
   };
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'space-around', paddingTop: '50px' }}>
-      <div style={{ textAlign: 'center' }}>
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        paddingTop: '50px',
+        padding: '0 20px',
+      }}
+    >
+      {/* Gender Distribution Pie Chart */}
+      <div style={{ flex: '0 0 35%', textAlign: 'center' }}>
         <h2>Gender Distribution</h2>
-        <PieChart width={400} height={400}>
+        <PieChart width={300} height={300}>
           <Pie
             data={genderData}
             cx="50%"
             cy="50%"
-            outerRadius={130}
-            innerRadius={50}
+            outerRadius={100}
+            innerRadius={40}
             fill="#8884d8"
             dataKey="value"
             label={renderCustomLabel}
@@ -101,15 +108,16 @@ const Dashboard = () => {
         </PieChart>
       </div>
 
-      <div style={{ textAlign: 'center' }}>
+      {/* Category Distribution Pie Chart */}
+      <div style={{ flex: '0 0 65%', textAlign: 'center' }}>
         <h2>Category Distribution</h2>
-        <PieChart width={450} height={450}>
+        <PieChart width={500} height={400}>
           <Pie
             data={categoryData}
             cx="50%"
             cy="50%"
-            outerRadius={130}
-            innerRadius={50}
+            outerRadius={140}
+            innerRadius={60}
             fill="#8884d8"
             dataKey="value"
             label={renderCustomLabel}
