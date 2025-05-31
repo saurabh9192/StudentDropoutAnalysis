@@ -52,7 +52,7 @@ export default function StateLogin() {
       } 
       else {
         window.alert("Success");
-        navigate('/analyticaldashboard');
+        navigate('/dashboard');
       }
 
     } catch (error) {

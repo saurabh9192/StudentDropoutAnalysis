@@ -359,4 +359,34 @@ router.get('/genderCount', async (req, res) => {
     }
 });
 
+router.get('/getStudents', (req, res) => {
+    Student.find()
+    .then(users => res.json(users))
+    .catch(err => res.json(err))
+})
+
+router.get('/getschoolstudents/:udisecode', async (req, res) => {
+  const { udisecode } = req.params;
+  try {
+    const students = await Student.find({ udisecode }); // Replace with actual DB query logic
+    res.status(200).json(students);
+  } catch (err) {
+    res.status(500).json({ message: "Server Error", error: err.message });
+  }
+});
+
+router.get('/categorycount', async (req, res) => {
+    try {
+      const perCount = await Student.countDocuments({ reason: 'personal' });
+      const finCount = await Student.countDocuments({ reason: 'financial' });
+      const traCount = await Student.countDocuments({ reason: 'travel' });
+      const helCount = await Student.countDocuments({ reason: 'health' });
+      const othCount = await Student.countDocuments({ reason: 'others' });
+
+      res.json({ personal: perCount, financial: finCount, travel:traCount,health:helCount,others:othCount});
+    } catch (error) {
+      res.status(500).json({ error: 'Error fetching data' });
+    }
+});
+
 module.exports = router;

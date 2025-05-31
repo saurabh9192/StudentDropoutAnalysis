@@ -10,7 +10,7 @@ const AnalyticalDashboard = () => {
 
   useEffect(() => {
     // Make a request to the Flask API endpoint
-    fetch('http://localhost:5000/api/generate_plot')
+    fetch('https://studentdropoutanalysis-2.onrender.com/generate_plot')
       .then(response => {
         if (!response.ok) {
           throw new Error('Server Not Connected');
