@@ -4,7 +4,7 @@
   import KoshishLogo from '../assets/Others/koshish - Logo.png'
   import { AuthContext } from '../context/AuthContext';
   export default function Navbar() {
-    const { isLoggedIn} = useContext(AuthContext);
+    const { isLoggedIn,logout} = useContext(AuthContext);
       return(
         <header id="navbar">
           <nav className="navbar navbar-expand-lg">
@@ -31,7 +31,7 @@
                         <li className="nav-item">
                 {isLoggedIn ? (
                   <Link className="nav-link" to="/login">
-                    <Button label="Logout" c="login-btn" type="logout" />
+                    <Button label="Logout" c="login-btn" type="logout" onClick={logout} />
                   </Link>
                 ) : (
                   <Link className="nav-link" to="/login">
