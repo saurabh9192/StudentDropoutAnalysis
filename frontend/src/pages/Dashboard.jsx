@@ -22,8 +22,9 @@ const Dashboard = () => {
         const categoryData = [
           { name: 'Financial', value: response.data.financial },
           { name: 'Personal', value: response.data.personal },
-          { name: 'Travel', value: response.data.travel },
-          { name: 'Health', value: response.data.health },
+          { name: 'Social', value: response.data.social },
+          { name: 'Work', value: response.data.work },
+          { name: 'Academic', value: response.data.academic },
           { name: 'Others', value: response.data.others }
         ];
         setCategoryData(categoryData);

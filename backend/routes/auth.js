@@ -263,19 +263,15 @@ router.post("/statelogin", async (req, res) => {
         }
 
         const stateUser = await StateUser.findOne({ email });
-
-
         if(stateUser)
         {
             const passwordMatch = stateUser.password === password;
-
             if (!passwordMatch) {
                 return res.status(401).json({ message: "INVALID CREDENTIALS" });
             } else {
                 console.log(stateUser);
                 return res.status(200).json({ message: "Login Successfully" });
             }
-
         }
 
         else
