@@ -30,8 +30,6 @@ export default function App() {
     <AuthProvider>
       <SchoolProvider>
         <>
-          {/* Navbar visible except on /dashboard */}
-          {location.pathname !== '/dashboard' && <Navbar />}
 
           <Routes>
             <Route path='/' element={<Home />} />
