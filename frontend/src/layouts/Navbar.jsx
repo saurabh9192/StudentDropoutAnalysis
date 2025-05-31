@@ -1,11 +1,10 @@
   import { useContext } from 'react';
-  import {Link, useLocation } from 'react-router-dom'
+  import {Link } from 'react-router-dom'
   import Button from '../components/Button'
   import KoshishLogo from '../assets/Others/koshish - Logo.png'
   import { AuthContext } from '../context/AuthContext';
   export default function Navbar() {
-    const location = useLocation();
-    const { isLoggedIn, login, logout } = useContext(AuthContext);
+    const { isLoggedIn} = useContext(AuthContext);
       return(
         <header id="navbar">
           <nav className="navbar navbar-expand-lg">
