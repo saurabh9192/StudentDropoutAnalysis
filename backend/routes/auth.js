@@ -347,8 +347,8 @@ router.post("/welcomeafterschoollogin", async (req, res) => {
 
 router.get('/genderCount', async (req, res) => {
     try {
-      const maleCount = await Student.countDocuments({ gender: 'Male' });
-      const femaleCount = await Student.countDocuments({ gender: 'Female' });
+      const maleCount = await Student.countDocuments({ gender: 'male' });
+      const femaleCount = await Student.countDocuments({ gender: 'female' });
       res.json({ male: maleCount, female: femaleCount });
     } catch (error) {
       res.status(500).json({ error: 'Error fetching data' });
