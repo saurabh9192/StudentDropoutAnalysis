@@ -7,7 +7,7 @@ import DoneIcon from '@mui/icons-material/Done';
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import KoshishLogo from '../assets/Others/koshish - Logo.png'
-
+import { AuthContext } from '../context/AuthContext';
 export default function StateLogin() {
 
   const navigate = useNavigate();
@@ -52,6 +52,7 @@ export default function StateLogin() {
       } 
       else {
         window.alert("Success");
+        login();
         navigate('/dashboard');
       }
 
